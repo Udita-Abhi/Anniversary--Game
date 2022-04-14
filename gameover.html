@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+	<canvas id="graphics" style="position:absolute; top:0; left:0;"></canvas>
+
+</body>
+
+<script>
+	$(document).ready(function() {
+		runIntro();
+	});
+function runIntro() {
+	$("body").css("overflow", "hidden")
+	var canvas = document.getElementById("graphics");
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	var context = canvas.getContext("2d");
+	
+	context.font      = "32px Verdana";
+	context.fillStyle = "#000000";
+	context.textAlign="center";
+
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("hello again!", canvas.width/2, canvas.height/2);
+	}, 500);
+	
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("Good Job winning our Date", canvas.width/2, canvas.height/2);
+	}, 1500);
+	
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("Infact... good job winning for 1 years and 2 months :)", canvas.width/2, canvas.height/2);
+	}, 3000);
+	
+	
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("Thanks for playing!", canvas.width/2, canvas.height/2-100);
+	}, 4500);
+	
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		var end = new Image();
+		end.onload = function() {
+			window.setTimeout(function() {
+				context.drawImage(end, canvas.width/2-220, canvas.height/2-100);
+			},6000 );
+		}
+		end.src = 'content/happyanniversary.png';
+	}, 0);	
+}
+</script>
+</html>

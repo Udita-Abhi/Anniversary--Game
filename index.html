@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+	<canvas id="graphics" style="position:absolute; top:0; left:0;"></canvas>
+
+</body>
+
+<script>
+	$(document).ready(function() {
+		runIntro();
+	});
+function runIntro() {
+	$("body").css("overflow", "hidden")
+	var canvas = document.getElementById("graphics");
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	var context = canvas.getContext("2d");
+	
+	context.font      = "32px Verdana";
+	context.fillStyle = "#000000";
+	context.textAlign="center";
+		
+	context.fillText("Hi Udita :)", canvas.width/2, canvas.height/2);
+	
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("Happy 14 Months Anniversary", canvas.width/2, canvas.height/2);
+	}, 1500);
+	
+	window.setTimeout(function() {
+		var heart = new Image();
+		heart.onload = function() {
+			window.setTimeout(function() {
+				context.drawImage(heart, canvas.width/2-110, canvas.height/2+110);
+			}, 1500);
+		}
+		heart.src = 'content/heart.png';
+	}, 1500);	
+
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("This is you", canvas.width/2, canvas.height/2);
+	}, 4500);
+	
+	window.setTimeout(function() {
+		var sam = new Image();
+		sam.onload = function() {
+			window.setTimeout(function() {
+				context.drawImage(sam, canvas.width/2+100, canvas.height/2);
+			}, 6000);
+		}
+		sam.src = 'content/sam/front.png';
+	}, 0);	
+	
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("This is Me", canvas.width/2, canvas.height/2);
+	}, 7500);
+	
+		window.setTimeout(function() {
+		var alex = new Image();
+		alex.onload = function() {
+			window.setTimeout(function() {
+				context.drawImage(alex, canvas.width/2+100, canvas.height/2);
+			}, 9000);
+		}
+		alex.src = 'content/alex/front.png';
+	}, 0);	
+	
+	window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("It is the day of our first date!", canvas.width/2, canvas.height/2);
+	}, 10500);
+	
+		window.setTimeout(function() {
+		context.clearRect(0,0,canvas.width,canvas.height);
+		context.fillText("HAVE FUN!", canvas.width/2, canvas.height/2);
+	}, 12000);
+	
+	window.setTimeout(function() {
+		window.location = 'samsroom.html'
+	}, 13500);
+}
+</script>
+</html>
